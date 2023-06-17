@@ -1,6 +1,10 @@
 let hr = document.querySelector("#hr");
 let mn = document.querySelector("#mn");
 let sc = document.querySelector("#sc");
+let hours = document.getElementById("hours");
+let minutes = document.getElementById("minutes");
+let seconds = document.getElementById("seconds");
+let AM_PM = document.getElementById("am_pm");
 
 setInterval(() => {
   let day = new Date();
@@ -11,11 +15,6 @@ setInterval(() => {
   hr.style.transform = `rotateZ(${hh + mm / 12}deg)`;
   mn.style.transform = `rotateZ(${mm}deg)`;
   sc.style.transform = `rotateZ(${ss}deg)`;
-
-  let hours = document.getElementById("hours");
-  let minutes = document.getElementById("minutes");
-  let seconds = document.getElementById("seconds");
-  let AM_PM = document.getElementById("am_pm");
 
   let h = new Date().getHours();
   let m = new Date().getMinutes();
