@@ -1,37 +1,34 @@
-let hr = document.querySelector("#hr");
-let mn = document.querySelector("#mn");
-let sc = document.querySelector("#sc");
-let hours = document.getElementById("hours");
-let minutes = document.getElementById("minutes");
-let seconds = document.getElementById("seconds");
-let AM_PM = document.getElementById("am_pm");
+const hr = document.querySelector("#hr");
+const mn = document.querySelector("#mn");
+const sc = document.querySelector("#sc");
+const hours = document.getElementById("hours");
+const minutes = document.getElementById("minutes");
+const seconds = document.getElementById("seconds");
+const am_pm = document.getElementById("am_pm");
 
-setInterval(() => {
-  let day = new Date();
-  let hh = day.getHours() * 30;
-  let mm = day.getMinutes() * 6;
-  let ss = day.getSeconds() * 6;
-
-  hr.style.transform = `rotateZ(${hh + mm / 12}deg)`;
-  mn.style.transform = `rotateZ(${mm}deg)`;
-  sc.style.transform = `rotateZ(${ss}deg)`;
-
-  let h = new Date().getHours();
-  let m = new Date().getMinutes();
-  let s = new Date().getSeconds();
-
+const updateTime = () => {
+  const now = new Date();
+  let h = now.getHours();
+  let m = now.getMinutes();
+  let s = now.getSeconds();
   let am = h >= 12 ? "PM" : "AM";
 
   if (h > 12) {
-    h = h - 12;
+    h -= 12;
   }
 
-  h = h < 10 ? "0" + h : h;
-  m = s < 10 ? "0" + m : m;
-  s = s < 10 ? "0" + s : s;
+  hours.textContent = h < 10 ? "0" + h : h;
+  minutes.textContent = m < 10 ? "0" + m : m;
+  seconds.textContent = s < 10 ? "0" + s : s;
+  am_pm.textContent = am;
 
-  hours.innerHTML = h;
-  minutes.innerHTML = m;
-  seconds.innerHTML = s;
-  AM_PM.innerHTML = am;
-});
+  const hourRotation = h * 30 + m / 2;
+  const minuteRotation = m * 6;
+  const secondRotation = s * 6;
+
+  hr.style.transform = `rotateZ(${hourRotation}deg)`;
+  mn.style.transform = `rotateZ(${minuteRotation}deg)`;
+  sc.style.transform = `rotateZ(${secondRotation}deg)`;
+};
+
+setInterval(updateTime, 1000);
