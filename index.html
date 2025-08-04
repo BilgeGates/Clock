@@ -2,44 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Clock</title>
   </head>
   <body>
-    <div class="container">
-      <div class="clock">
-        <div class="circle" id="sc" style="--clr: #04fc43">
-          <i></i>
-        </div>
-        <div class="circle circle2" id="mn" style="--clr: #fee800">
-          <i></i>
-        </div>
-        <div class="circle circle3" id="hr" style="--clr: #ff2972">
-          <i></i>
-        </div>
-        <span style="--i: 1"><b>1</b></span>
-        <span style="--i: 2"><b>2</b></span>
-        <span style="--i: 3"><b>3</b></span>
-        <span style="--i: 4"><b>4</b></span>
-        <span style="--i: 5"><b>5</b></span>
-        <span style="--i: 6"><b>6</b></span>
-        <span style="--i: 7"><b>7</b></span>
-        <span style="--i: 8"><b>8</b></span>
-        <span style="--i: 9"><b>9</b></span>
-        <span style="--i: 10"><b>10</b></span>
-        <span style="--i: 11"><b>11</b></span>
-        <span style="--i: 12"><b>12</b></span>
+    <div class="particles" id="particles"></div>
+
+    <div class="clock-container">
+      <div class="outer-ring"></div>
+      <div class="clock-face">
+        <div class="hour-markers" id="hourMarkers"></div>
+        <div class="minute-markers" id="minuteMarkers"></div>
+        <div class="hand hour-hand" id="hourHand"></div>
+        <div class="hand minute-hand" id="minuteHand"></div>
+        <div class="hand second-hand" id="secondHand"></div>
+        <div class="center-dot"></div>
       </div>
-      <div id="time">
-        <div id="hours" style="--clr: #ff2972">00</div>
-        <div id="minutes" style="--clr: #fee800">00</div>
-        <div id="seconds" style="--clr: #04fc43">00</div>
-        <div id="am_pm">AM</div>
+
+      <div class="digital-time">
+        <div class="time-display" id="digitalTime">00:00:00</div>
+        <div class="date-display" id="dateDisplay">Loading...</div>
       </div>
     </div>
 
-    <script src="main.js"></script>
+    <script src="./main.js" type="module"></script>
   </body>
 </html>

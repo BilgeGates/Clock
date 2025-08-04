@@ -1,34 +1,54 @@
-const hr = document.querySelector("#hr");
-const mn = document.querySelector("#mn");
-const sc = document.querySelector("#sc");
-const hours = document.getElementById("hours");
-const minutes = document.getElementById("minutes");
-const seconds = document.getElementById("seconds");
-const am_pm = document.getElementById("am_pm");
+const hourContainer = document.getElementById("hourMarkers");
+for (let i = 0; i < 12; i++) {
+  const marker = document.createElement("div");
+  marker.className = "hour-marker";
+  marker.style.transform = `rotate(${i * 30}deg)`;
+  hourContainer.appendChild(marker);
+}
 
-const updateTime = () => {
-  const now = new Date();
-  let h = now.getHours();
-  let m = now.getMinutes();
-  let s = now.getSeconds();
-  let am = h >= 12 ? "PM" : "AM";
-
-  if (h > 12) {
-    h -= 12;
+const minuteContainer = document.getElementById("minuteMarkers");
+for (let i = 0; i < 60; i++) {
+  if (i % 5 !== 0) {
+    const marker = document.createElement("div");
+    marker.className = "minute-marker";
+    marker.style.transform = `rotate(${i * 6}deg)`;
+    minuteContainer.appendChild(marker);
   }
+}
 
-  hours.textContent = h < 10 ? "0" + h : h;
-  minutes.textContent = m < 10 ? "0" + m : m;
-  seconds.textContent = s < 10 ? "0" + s : s;
-  am_pm.textContent = am;
+const particles = document.getElementById("particles");
+for (let i = 0; i < 20; i++) {
+  const particle = document.createElement("div");
+  particle.className = "particle";
+  particle.style.left = Math.random() * 100 + "%";
+  particle.style.top = Math.random() * 100 + "%";
+  particle.style.animationDelay = Math.random() * 6 + "s";
+  particles.appendChild(particle);
+}
 
-  const hourRotation = h * 30 + m / 2;
-  const minuteRotation = m * 6;
-  const secondRotation = s * 6;
+const updateClock = () => {
+  const now = new Date();
+  const h = now.getHours();
+  const m = now.getMinutes();
+  const s = now.getSeconds();
 
-  hr.style.transform = `rotateZ(${hourRotation}deg)`;
-  mn.style.transform = `rotateZ(${minuteRotation}deg)`;
-  sc.style.transform = `rotateZ(${secondRotation}deg)`;
+  document.getElementById("hourHand").style.transform = `rotate(${
+    (h % 12) * 30 + m * 0.5
+  }deg)`;
+  document.getElementById("minuteHand").style.transform = `rotate(${m * 6}deg)`;
+  document.getElementById("secondHand").style.transform = `rotate(${s * 6}deg)`;
+
+  document.getElementById("digitalTime").textContent = `${h
+    .toString()
+    .padStart(2, "0")}:${m.toString().padStart(2, "0")}:${s
+    .toString()
+    .padStart(2, "0")}`;
+
+  document.getElementById("dateDisplay").textContent = now.toLocaleDateString(
+    "en-US",
+    { weekday: "long", year: "numeric", month: "long", day: "numeric" }
+  );
 };
 
-setInterval(updateTime, 1000);
+updateClock();
+setInterval(updateClock, 1000);
