@@ -2,7 +2,7 @@
 
 <div align="center">
 
-**Modern web application for tracking time across cities, countdown timers, and stopwatch**
+**React-based time management application with world clocks, countdown timer, and stopwatch**
 
 [![React](https://img.shields.io/badge/React-18.2-61DAFB?style=flat-square&logo=react&logoColor=white)](https://react.dev)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
@@ -36,23 +36,23 @@
 
 ## 🌟 Overview
 
-World Clock & Timer is a React-based web application for **tracking time across different cities worldwide**, setting **countdown timers**, and using a **stopwatch**.  
-Built for users who need **fast, reliable, and feature-rich** time management tools.
+Web application for tracking time across different cities, countdown timers, and stopwatch functionality. Built with React and runs entirely in the browser.
 
 ---
 
 ## ✨ Features
 
-- Real-time analog and digital clock with smooth animations
-- World clocks for 25+ major cities with timezone support
-- Add/remove cities dynamically with search functionality
-- Countdown timer with hours, minutes, and seconds
-- Stopwatch with millisecond precision and lap recording
-- Alarms with toggle on/off functionality
+- Analog and digital clock display
+- World clocks for 25+ cities
+- Search and add cities dynamically
+- Countdown timer with hours, minutes, seconds
+- Stopwatch with millisecond precision
+- Lap recording for stopwatch
+- Alarm system with toggle
 - Time statistics (Day of Year, Week Number, Unix Timestamp)
-- Browser notification support for timer completion
-- Fully responsive design for all devices
-- Zero-backend architecture (all data stays local)
+- Browser notifications for timer completion
+- Responsive design
+- All data stored locally
 
 ---
 
@@ -99,7 +99,7 @@ npm run build
 
 ## 📁 Project Structure
 ```
-world-clock-timer/
+clock/
 │
 ├── 📂 public/
 │   ├── index.html
@@ -235,11 +235,11 @@ world-clock-timer/
 
 | Browser | Version | Status |
 |---------|---------|--------|
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg" width="20"/> Chrome | 90+ | ✅ Full Support |
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firefox/firefox-original.svg" width="20"/> Firefox | 88+ | ✅ Full Support |
-| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/safari/safari-original.svg" width="20"/> Safari | 14+ | ✅ Full Support |
-| <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge.svg" width="20"/> Edge | 90+ | ✅ Full Support |
-| <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera.svg" width="20"/> Opera | 76+ | ✅ Full Support |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg" width="20"/> Chrome | 90+ | ✅ Tested |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firefox/firefox-original.svg" width="20"/> Firefox | 88+ | ✅ Tested |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/safari/safari-original.svg" width="20"/> Safari | 14+ | ✅ Expected to work |
+| <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge.svg" width="20"/> Edge | 90+ | ✅ Expected to work |
+| <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera.svg" width="20"/> Opera | 76+ | ✅ Expected to work |
 
 </div>
 
@@ -255,8 +255,7 @@ world-clock-timer/
 
 ## 🔐 Security & Privacy
 
-This project follows a **privacy-first, zero-backend architecture**.  
-All functionality runs entirely in the user's browser with no external data flow.
+Zero-backend architecture - all functionality runs in the browser.
 
 ### 🔒 Security Highlights
 
@@ -266,10 +265,9 @@ All functionality runs entirely in the user's browser with no external data flow
 - ✅ No third-party analytics or telemetry
 - ✅ No user data is collected, stored, or transmitted
 
-### 🛡️ Data Safety Guarantee
+### 🛡️ Data Safety
 
-> World Clock & Timer will **never** upload, sync, or share your data.  
-> All settings, timers, and preferences remain local to your device.
+All settings, timers, and preferences are stored locally using localStorage.
 
 For security concerns, see [SECURITY.md](SECURITY.md).
 
@@ -277,7 +275,7 @@ For security concerns, see [SECURITY.md](SECURITY.md).
 
 ## 🤝 Contributing
 
-We welcome contributions from the community! Whether you're fixing bugs, adding features, or improving documentation, your help is appreciated.
+Contributions welcome.
 
 ### Quick Contribution Guide
 ```bash
@@ -301,8 +299,6 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines on:
 - Feature requests
 
 ### Contributors
-
-Thanks to all the contributors who have helped make World Clock & Timer better!
 
 <a href="https://github.com/BilgeGates/Clock/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=BilgeGates/Clock" />
@@ -357,43 +353,41 @@ SOFTWARE.
 
 ## 🙏 Acknowledgments
 
-This project wouldn't be possible without these amazing resources:
-
 <table>
 <tr>
 <td align="center" width="33%">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="100"/><br>
   <b>React Team</b><br>
-  <sub>Amazing framework</sub>
+  <sub>Framework</sub>
 </td>
   
 <td align="center" width="33%">
   <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tailwindcss.svg" width="100"/><br>
   <b>Tailwind Labs</b><br>
-  <sub>Beautiful utilities</sub>
+  <sub>CSS Framework</sub>
 </td>
 
 <td align="center" width="33%">
   <img src="https://lucide.dev/logo.light.svg" width="100"/><br>
   <b>Lucide Icons</b><br>
-  <sub>Icon library</sub>
+  <sub>Icon Library</sub>
 </td>
 </tr>
 </table>
 
 ---
 
-## 📧 Support & Contact
-
-### Get Help
+## 📧 Community & Support
 
 <div align="center">
 
-| Channel | Link | Response Time |
-|---------|------|---------------|
-| 🐛 **Bug Reports** | [GitHub Issues](https://github.com/BilgeGates/Clock/issues) | 24-48 hours |
-| 💡 **Feature Requests** | [GitHub Discussions](https://github.com/BilgeGates/Clock/discussions) | 1-3 days |
-| 📧 **Email** | darkdeveloperassistant@gmail.com | 2-5 days |
+| Channel | Link |
+|---------|------|
+| 🐛 **Bug Reports** | [GitHub Issues](https://github.com/BilgeGates/Clock/issues) |
+| 💡 **Feature Requests** | [GitHub Discussions](https://github.com/BilgeGates/Clock/discussions) |
+| 📧 **Email** | darkdeveloperassistant@gmail.com |
+
+*Responses on a best-effort basis*
 
 </div>
 
@@ -438,7 +432,7 @@ The app works perfectly fine without them - you'll just see a standard browser a
 <details>
 <summary><b>How is my data stored?</b></summary>
 
-All user data (timezones, timer settings, alarms) is stored locally in your browser.  
+All user data (timezones, timer settings, alarms) is stored locally in your browser using localStorage.  
 No data is sent to any server.
 </details>
 
