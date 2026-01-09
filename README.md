@@ -1,6 +1,7 @@
-# 🌍 World Clock & Timer
 
 <div align="center">
+  
+# 🌍 World Clock & Timer
 
 **React-based time management application with world clocks, countdown timer, and stopwatch**
 
