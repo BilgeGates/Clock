@@ -1,5 +1,6 @@
-// Comprehensive timezone database with all major cities and countries
-const TIMEZONES = [
+// Timezone data for world clock feature
+
+export const TIMEZONES = [
   // North America
   {
     city: "New York",
@@ -867,19 +868,19 @@ const TIMEZONES = [
   },
 ];
 
-// Search function
-function searchTimezones(query) {
-  const lowerQuery = query.toLowerCase();
-  return TIMEZONES.filter(
-    (tz) =>
-      tz.city.toLowerCase().includes(lowerQuery) ||
-      tz.country.toLowerCase().includes(lowerQuery)
-  );
-}
+// Default timezones to show on initial load
+export const DEFAULT_TIMEZONES = [
+  "America/New_York",
+  "Europe/London",
+  "Asia/Tokyo",
+  "Asia/Dubai",
+  "Australia/Sydney",
+];
 
-// Get timezone by city name
-function getTimezoneByCity(cityName) {
-  return TIMEZONES.find(
-    (tz) => tz.city.toLowerCase() === cityName.toLowerCase()
-  );
-}
+// Tab configuration
+export const TABS = [
+  { id: "clock", label: "Clock" },
+  { id: "stopwatch", label: "Stopwatch" },
+  { id: "timer", label: "Timer" },
+  { id: "alarm", label: "Alarms" },
+];
