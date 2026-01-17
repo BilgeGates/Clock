@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from "react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Header } from "./components/layout";
 import { StatsGrid } from "./components/stats";
 import { AnalogClock, DigitalTime } from "./components/clock";
@@ -56,6 +57,7 @@ function App() {
         <StatsGrid time={time} />
         {renderContent}
       </div>
+      <SpeedInsights />
     </div>
   );
 }
