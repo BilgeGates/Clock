@@ -24,20 +24,25 @@ const Input = memo(
       placeholder={placeholder}
       className={`
       px-4 py-3 
-      bg-slate-800 
-      border border-slate-700 
+      bg-slate-800/50
+      backdrop-blur-sm
+      border border-slate-700/50
       rounded-lg 
       text-slate-100 
       placeholder-slate-500 
       focus:outline-none 
-      focus:border-primary 
+      focus:border-primary-400
+      focus:ring-2
+      focus:ring-primary/30
+      focus:bg-slate-800
+      hover:border-slate-600
       transition-all 
-      duration-300 
+      duration-300
       ${className}
     `}
       {...props}
     />
-  )
+  ),
 );
 
 Input.displayName = "Input";
