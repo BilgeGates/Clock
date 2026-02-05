@@ -19,15 +19,19 @@ const Button = memo(
     className = "",
   }) => {
     const baseStyles =
-      "rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2";
+      "rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 relative overflow-hidden group active:scale-95";
 
     const variants = {
       primary:
-        "bg-primary hover:bg-primary/80 text-white shadow-lg shadow-primary/30",
-      secondary: "bg-slate-700 hover:bg-slate-600 text-white",
-      danger: "bg-red-600 hover:bg-red-500 text-white",
+        "bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-400 hover:to-primary-500 text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/50 border border-primary-400/20",
+      secondary:
+        "bg-gradient-to-r from-slate-700 to-slate-600 hover:from-slate-600 hover:to-slate-500 text-white shadow-lg shadow-slate-700/30 hover:shadow-xl hover:shadow-slate-600/50 border border-slate-600/20",
+      danger:
+        "bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white shadow-lg shadow-red-600/30 hover:shadow-xl hover:shadow-red-500/50 border border-red-500/20",
       ghost:
-        "bg-slate-800 border border-slate-700 text-slate-300 hover:bg-primary hover:border-primary hover:text-white",
+        "bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 text-slate-300 hover:bg-gradient-to-r hover:from-primary-500 hover:to-secondary-500 hover:border-primary/50 hover:text-white hover:shadow-lg hover:shadow-primary/30",
+      success:
+        "bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 text-white shadow-lg shadow-green-600/30 hover:shadow-xl hover:shadow-green-500/50 border border-green-500/20",
     };
 
     const sizes = {
@@ -44,14 +48,20 @@ const Button = memo(
         ${baseStyles} 
         ${variants[variant]} 
         ${sizes[size]} 
-        ${disabled ? "opacity-50 cursor-not-allowed" : ""} 
+        ${disabled ? "opacity-50 cursor-not-allowed active:scale-100" : "hover:-translate-y-0.5"} 
         ${className}
       `}
       >
-        {children}
+        {/* Shine effect on hover */}
+        <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+
+        {/* Content */}
+        <span className="relative z-10 flex items-center gap-2">
+          {children}
+        </span>
       </button>
     );
-  }
+  },
 );
 
 Button.displayName = "Button";
