@@ -20,27 +20,33 @@ const DigitalTime = memo(({ time }) => {
         day: "numeric",
       }),
     }),
-    [time]
+    [time],
   );
 
   return (
-    <div className="text-center">
+    <div className="text-center w-full">
       <div
         className="
-        text-5xl 
+        text-4xl sm:text-5xl md:text-6xl
         font-bold 
         bg-gradient-to-r 
-        from-primary 
-        to-accent 
+        from-primary-400
+        via-secondary-400
+        to-accent-400
         bg-clip-text 
         text-transparent 
-        mb-2 
+        mb-3
         font-mono
+        tracking-wider
+        drop-shadow-lg
+        animate-fade-in
       "
       >
         {formatted.time}
       </div>
-      <div className="text-lg text-slate-400">{formatted.date}</div>
+      <div className="text-base sm:text-lg text-slate-400 font-medium">
+        {formatted.date}
+      </div>
     </div>
   );
 });
