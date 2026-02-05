@@ -29,9 +29,9 @@ function App() {
     switch (activeTab) {
       case "clock":
         return (
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card>
-              <div className="flex flex-col items-center gap-8">
+          <div className="grid md:grid-cols-2 gap-6 animate-fade-in">
+            <Card className="flex items-center justify-center">
+              <div className="flex flex-col items-center gap-8 w-full">
                 <AnalogClock time={time} />
                 <DigitalTime time={time} />
               </div>
@@ -40,19 +40,44 @@ function App() {
           </div>
         );
       case "stopwatch":
-        return <StopwatchPanel />;
+        return (
+          <div className="animate-fade-in">
+            <StopwatchPanel />
+          </div>
+        );
       case "timer":
-        return <TimerPanel />;
+        return (
+          <div className="animate-fade-in">
+            <TimerPanel />
+          </div>
+        );
       case "alarm":
-        return <AlarmPanel />;
+        return (
+          <div className="animate-fade-in">
+            <AlarmPanel />
+          </div>
+        );
       default:
         return null;
     }
   }, [activeTab, time]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
-      <div className="container mx-auto px-4 sm:px-6 py-6 max-w-7xl">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse" />
+        <div
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: "1s" }}
+        />
+        <div
+          className="absolute top-1/2 left-1/2 w-96 h-96 bg-secondary-500/10 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: "2s" }}
+        />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 py-6 max-w-7xl relative z-10">
         <Header activeTab={activeTab} onTabChange={setActiveTab} />
         <StatsGrid time={time} />
         {renderContent}
